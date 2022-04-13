@@ -21,3 +21,21 @@ tl.fromTo(".cta4", { x: "100%", opacity: 0.5 }, { x: 0, opacity: 1 }, "<20%");
 tl.fromTo(".cta6", { x: "-100%", opacity: 0.5 }, { x: 0, opacity: 1 }, "<20%");
 tl.fromTo(".cta5", { y: "100%", opacity: 0.5 }, { y: 0, opacity: 1 }, "<20%");
 tl.fromTo(".cta-btn", { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "<");
+
+// Split Text Alternative
+
+const logo = document.querySelector(".logo");
+const letter = logo.textContent.split("");
+
+logo.textContent = "";
+
+letter.forEach((letter) => {
+  logo.innerHTML += '<span class="letter">' + letter + "</span>";
+});
+
+gsap.set(".letter", { display: "inline-block" });
+gsap.fromTo(
+  ".letter",
+  { y: 30 },
+  { y: 0, delay: 2, stagger: 0.05, ease: "back.out(3)" }
+);
